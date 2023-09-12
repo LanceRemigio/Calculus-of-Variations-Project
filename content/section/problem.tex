@@ -1,0 +1,50 @@
+
+There are  \( N \)  number of robots located at position \( x_i \in \R^{2} , i = 1, ..., N \). They need to be transferred to some given target position \( y_i \in \R^2 , i = 1, ..., N \). There are \( M \) circular obstacles in the domain of radius \( R > 0 \) and centers \( c_i, i = 1, ..., M \), which the robots must avoid. Additionally, the robots should not collide with each other. Find optimal paths for the robots, so that their velocities over the trajectory is minimized with these objectives in mind.
+
+\section*{Abstract}
+
+In order to model this situation as an optimization problem, we develop a vector valued cost functional. The minimization of this cost functional should produce optimal trajectories for the robots according to the conditions of the problem. In order to motivate this cost function, we divide it’s derivation into three sections, one for each of the problem’s conditions. The final functional is a sum of these three sub-parts. Then, we go on to calculate the first order necessary conditions for optimality, followed by numerically solving the resulting differential equations. Lastly, we consider a few different scenarios to verify that our model provides a reasonable representation of the trajectories. 
+
+\section*{Notation}
+
+\begin{itemize}
+    \item \( P_j(t): \) 
+    \begin{itemize}
+        \item Position of robot \( j \) at time \( t \).
+        \item \( P_j(t) = (x_j(t), y_j(t)) \) for \( j = 1,..,N \).
+        \item Assume \( t \in [0,1]; t_f = 1 \) 
+    \end{itemize}
+    
+    \item \( P_{j}^{0}: \) 
+    \begin{itemize}
+        \item Initial position of robot \( j \).
+        \item \( P_{j}^{0} = (x_{j}^{0}, y_{j}^{0}) \) for \( j = 1,..,N \).
+        \item Note that: \( (x_{j}^{0}, y_{j}^{0}) = (x_{j}(0), y_{j}(0)) \).
+    \end{itemize}
+    
+    \item \(  P_{j}^{F}: \) 
+    \begin{itemize}
+        \item Final position of robot \( j \).
+        \item \( P_{j}^{F} = (x_{j}^{F}, y_{j}^{F}) \) for \( j = 1,..,N \).
+        \item Note that \( P_{j}^{F} = (x_{j}^{F}, y_{j}^{F}) = (x_{j}(1), y_{j}(1)). \) 
+    \end{itemize}
+    
+    \item \( C_{\ell}: \) 
+    \begin{itemize}
+         \item Center of Obstacle \( \ell \) where \( C_{\ell} = (a_{\ell}, b_{\ell}) \) for \( \ell = 1,...,M \)
+    \end{itemize}
+    
+    \item \( P(t) = (P_1(t),P_2(t),...,P_N(t)) \) 
+    
+    \item \( C = (C_1, C_2, ..., C_M) \)
+    
+\end{itemize}
+
+
+
+
+
+
+
+
+

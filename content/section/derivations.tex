@@ -1,0 +1,91 @@
+Our goal is to minimize the functional \( \tilde{L}(P)\) such that:
+\[  \min_{P\in D} \tilde{L}(P)                    \]
+where:
+\[ \tilde{L}(P) = L(P) + F(P) + G(P)\]
+
+in which \(L(P) \) represents the total length of trajectories, \( F(P) \) represents the total force between each robot, and \( G(P) \) represents the total force between each robot and each obstacle.  To determine the appropriate space \( D \), we evaluate the Gateaux Derivative of \( \tilde{L}(P) \).
+
+The Gateaux derivative of \( \delta \tilde{L}(P;V)\) is
+\[ \delta \tilde{L}(P;V) = \delta L(P;V) + \delta F(P;V) + \delta G(P;V)\]
+where \( V = (v_1,...,v_n) \) and \( v_j = (u_j,w_j) \).
+
+We will compute the Gateaux derivatives \(\delta L(P;V) , \delta F(P;V) , \delta G(P;V)\) separately.
+
+\subsection{The Gateaux Derivative of \( L(P) \)}
+\begin{prop}
+   The Gateaux Derivative of \( L(P) \) is 
+\begin{align*}
+    \delta L(P;v) &= \int_{0}^{1} \tilde{P'} \cdot V' \ dt.
+\end{align*}
+
+where \[ \tilde{P'} = \bigg( \frac{P'_1}{|P'_1|},\frac{P'_2}{|P'_2|}, ... , \frac{P'_N}{|P'_N|}  \bigg) .\]
+\end{prop}
+\begin{proof}
+Expand \( L(P)  \) to get 
+\[  L(P) = \int_{ 0 }^{ 1 } | P'(t)  |  \ dt = \int_{ 0 }^{ 1 } \sum_{ j=1 }^{ N }| P'_{j}(t) |  \ dt. \]
+Define \( g(\varepsilon) = L(P + \epsilon V)  \). We can write \( g(\epsilon ) \) as  
+\begin{align*}
+    g(\varepsilon) &= \int_{ 0 }^{ 1 } \sum_{ j=1 }^{ N } | P'_{j}(t) + \epsilon V'_{j} |  \ dt \\
+                   &= \int_{ 0 }^{ 1 }  \sum_{ j=1 }^{ N } \sqrt{ (x'_{j} + \epsilon u'_{j})^{2} + (y'_{2} + \epsilon w'_{j})^{2}  }  \ dt.
+\end{align*}
+Computing \( g'(\epsilon ) \), then gives us
+\begin{align*}
+   g'(\epsilon ) &= \frac{ d }{ d \epsilon  }  \int_{ 0 }^{ 1 } \sum_{ j=1 }^{ N } \sqrt{ (x'_{j } + \epsilon u'_{j})^{2} + (y'_{j} + \epsilon w'_{j})^{2} }  \ dt \\
+                 &= \int_{ 0 }^{ 1 } \sum_{ j=1 }^{ N } \frac{\partial  }{\partial \epsilon  } \sqrt{ (x'_{j} + \epsilon  u'_{j})^{2} + (y'_{j} + \epsilon  w'_{j })^{2}  }  \ dt \\
+                 &= \int_{ 0 }^{ 1 } \sum_{ j=1 }^{ N } \frac{ (x'_{j} + \epsilon u'_{j} ) u'_{j} + (y'_{j} + \epsilon  w'_{j}) w'_{j}  }{  \sqrt{  (x'_{j} + \epsilon  u'_{j})^{2} + (y'_{j} + \epsilon  w'_{j })^{2}  }   }  \ dt. 
+\end{align*}
+Taking the limit as \( \epsilon  \to 0  \), then gives us
+
+\begin{align*}
+    g'(0) &= \int_{ 0 }^{ 1 } \sum_{ j=1 }^{ N } \frac{ x'_{j} u'_{j} + y'_{j} w'_{j }  }{ \sqrt{ (x'_{j })^{2} + (y'_{j })^{2} }  }  \ dt \\
+          &=  \int_{ 0 }^{ 1 }  \sum_{ j=1 }^{ N } \frac{ P'_{j} V'_{j}  }{ | P'_{j }  |  }  \ dt
+\end{align*}
+where \( x'_{j} u'_{j } + y'_{j } w'_{j } - P'_{j } \cdot V'_{j }  \) and \( | P'_{j } | = \sqrt{ (x'_{j })^{2} + (y'_{j})^{2}  }  \). Hence, applying the Gateaux Derivative to the total length of all possible trajectories is
+\begin{align*}
+    \delta L(P;v) &= \int_{0}^{1} \tilde{P'} \cdot V' \ dt.
+\end{align*}
+
+where \[ \tilde{P'} = \bigg( \frac{P'_1}{|P'_1|},\frac{P'_2}{|P'_2|}, ... , \frac{P'_N}{|P'_N|}  \bigg) .\]
+\end{proof}
+
+
+\subsection{The Gateaux Derivative of F(P)}
+
+\begin{prop}
+    The Gateaux Derivative of the total force between each robot is
+    \[  \delta F(P;V) = \int_{0}^{1} \sum_{i=2}^{N} \sum_{j=1}^{i-1} \frac{2(P_i - P_j) \cdot (v_i - v_j)}{| P_i - P_j|^4} \ dt. \]
+\end{prop}
+\begin{proof}
+Expand \(G(P)\) to get 
+\begin{align*} 
+    G(P) &= \int_{0}^{1} \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{dt}{|r_{i\ell}(t)|^2}  \\
+         &= \int_{0}^{1} \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{dt}{(\sqrt{(x_i(t) - a_{\ell})^2 + (y_i(t) - b_{\ell})^2} - R)^2}.
+\end{align*}
+Define \(g(\epsilon ) = G(P + \epsilon  V)\), we have
+\begin{align*}
+    g(\epsilon ) &= \int_{0}^{1} \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{dt}{(\sqrt{((x_i + \epsilon  u_i)- a_{\ell})^2 + ((y_i + \epsilon  w_i) - b_{\ell})^2} - R)^2}. \\
+\end{align*}
+and differentiating with respect to \( \epsilon  \) leads to  
+\[ 
+g'(\epsilon ) = \int_{0}^{1}\sum_{i=1}^{N}\sum_{\ell=1}^{M} \Bigg[ -2\frac{ 2((x_i + \epsilon  u_i) - a_{\ell})u_i + 2((y_i + \epsilon  w_i) - b_{\ell})w_i}{|r_{i\ell}(t)|^3 2\sqrt{((x_i + \epsilon  u_i)- a_{\ell})^2 + ((y_i + \epsilon  w_i) - b_{\ell})^2}}  \Bigg] \ dt 
+\]
+Letting \( \epsilon  \to 0  \), we get 
+\begin{align*}
+    g'(0) &=  \int_{0}^{1} \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{-2[(x_i - a_{\ell})u_i + (y_i - b_{\ell})w_i]}{ \big| r_{i\ell}\big|^3\big|P_i(t) - C_l \big|} \ dt \\
+          &= \int_{0}^{1} \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{ -2(P_i - C_{\ell}) \cdot V_i}{\big| r_{i\ell}\big|^3\big|P_i(t) - C_l \big| }\ dt \\
+\end{align*}
+We conclude that 
+\[
+\delta G(P;V) = \int_{0}^{1} \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{ -2(P_i - C_{\ell}) \cdot V_i}{\big| r_{i\ell}\big|^3\big|P_i(t) - C_l \big| }\ dt.
+\]
+
+
+\[
+ \delta \tilde{L} (P;V) = \int_{0}^{1} \bigg[ \sum_{j=1}^{N} \frac{P'_j \cdot V'_j}{|P'_j|} +\sum_{i=2}^{N} \sum_{j=1}^{i-1} \frac{2(P_i - P_j) \cdot (V_i - V_j)}{| P_i - P_j|^4} 
+               - \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{2(P_i - C_{\ell}) \cdot V_i}{\big| r_{i\ell}\big|^3\big|P_i(t) - C_l \big| } \bigg] \ dt.
+\]
+\end{proof}
+
+
+
+

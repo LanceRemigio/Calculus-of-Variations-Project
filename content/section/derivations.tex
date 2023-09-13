@@ -55,37 +55,73 @@ where \[ \tilde{P'} = \bigg( \frac{P'_1}{|P'_1|},\frac{P'_2}{|P'_2|}, ... , \fra
     The Gateaux Derivative of the total force between each robot is
     \[  \delta F(P;V) = \int_{0}^{1} \sum_{i=2}^{N} \sum_{j=1}^{i-1} \frac{2(P_i - P_j) \cdot (v_i - v_j)}{| P_i - P_j|^4} \ dt. \]
 \end{prop}
+
 \begin{proof}
-Expand \(G(P)\) to get 
+First we expand \( F(p)  \) to get
+\begin{align*}
+    F(P) &= \frac{ 1 }{ 2 }  \int_{ 0 }^{ 1 } \sum_{ i,j = 1  }^{ N } F_{ij} \ dt \\
+         &= \int_{ 0 }^{ 1 } \sum_{ i=2 }^{ N } \sum_{ j=1 }^{ i-1 } F_{ij} \ dt \\
+         &= \int_{ 0 }^{ 1 } \sum_{ i=2 }^{ N } \sum_{ j=1 }^{ i-1 } \frac{ dt }{ | P_{i}(t) - P_{j }(t) |^{2}  }.
+\end{align*}
+Define \( g(\epsilon ) = F(P+\epsilon V)  \), we compute 
+\begin{align*}
+    g(\epsilon )&= \int_{ 0 }^{ 1 } \sum_{ i=2 }^{ N }\sum_{ j=1 }^{ i-1 } \frac{ dt }{ | (P_{i} + \epsilon v_{i} ) - (P_{j } + \epsilon v_{j }) | ^{2} } \\
+                &= \int_{ 0 }^{ 1 } \sum_{ i=2 }^{ N } \sum_{ j=1 }^{ i-1 } \frac{ dt }{ [(x_{i} + \epsilon v_{i}) - (x_{j } + \epsilon u_{j} )]^{2} + [(y_{i} + \epsilon w_{i} ) - (y_{j} + \epsilon w_{j})]^{2}}   \\
+                &= \int_{ 0 }^{ 1 } \sum_{ i=2 }^{ N } \sum_{ j=1 }^{ i-1 } \frac{ dt }{ [(x_{i} - x_{j }) + \epsilon (u_{i} - u_{j })]^{2} + [(y_{i} - y_{j}) + \epsilon (w_{i} - w_{j})]^{2}  }. \\
+\end{align*}
+We can take the derivative with respect to \( \epsilon  \) in the integrand will give us the following expression
+\begin{align*}
+    g'(\epsilon )&= \frac{ d }{ d \epsilon  }  \int_{ 0 }^{ 1 }  \sum_{ i=2 }^{ N } \sum_{ j=1 }^{ i-1 } \frac{ dt }{ [(x_{i} - x_{j}  ) + \epsilon (u_{i} - u_{j} )]^{2} + [(y_{i} - y_{j} ) + \epsilon (w_{i} - w_{j})]^{2} } \\
+                 &= \int_{ 0 }^{ 1 } \sum_{ i=2 }^{ N } \sum_{ j=1 }^{ i-1 }    
+    \frac{\partial  }{\partial \epsilon  }  \Bigg[ \frac{ 1 }{ [(x_{i } - x_{j}) + \epsilon (u_{i} - u_{j})]^{2} + [(y_{i} - y_{j}) + \epsilon (w_{i} - w_{j})]^{2} } \Bigg]  \ dt \\
+                 &= \int_{ 0 }^{ 1 } \sum_{ i=2 }^{ N } \sum_{ j=1 }^{ i-1 } \frac{ 2[(x_{i} - x_{j}) + \epsilon (u_{i} - u_{j})](u_{i} - u_{j}) + 2[(y_{i} - y_{j}) + \epsilon (w_{i} - w_{j})](w_{i} - w_{j}) }{  \Big[ [(x_{i} - x_{j}) + \epsilon (u_{i} - u_{j})]^{2} + [(y_{i} - y_{j}) + \epsilon (w_{i} - w_{j})]^{2} \Big]^{2} }  \ dt.
+\end{align*}
+Letting \( \epsilon \to 0  \) and recalling that \( v_{i} = (u_{i}, w_{i} )  \) and \( v_{j} = (u_{j} , w_{j} ) \), we have that
+\begin{align*}
+    \lim_{ \epsilon  \to 0 } g'(\epsilon ) &= \int_{ 0 }^{ 1 } \sum_{ i=2 }^{ N } \sum_{ j=1 }^{ i-1 } \frac{ 2(x_{i} - x_{j})(u_{i} - u_{j}) + 2(y_{i} - y_{j})(w_{i} - w_{j}) }{ [(x_{i} - x_{j})^{2} + (y_{i} - y_{j})^{2}]^{2} }  \ dt  \\
+                                           &= \int_{ 0 }^{ 1 } \sum_{ i=2 }^{ N } \sum_{ j=1 }^{ i-1 } \frac{ 2(P_{i} - P_{j}) \cdot (v_{i} - v_{j}) }{ | P_{i} - P_{j} |^{4} }  \ dt.
+\end{align*}
+\end{proof}
+Hence, the Gateaux Derivative of the total force \( F(p) \) is 
+\[  \delta F(P; V) = \int_{ 0 }^{ 1 }  \sum_{ i=2 }^{ N } \sum_{ j=1 }^{ i-1 } \frac{ 2(P_{i} - P_{j}) \cdot (v_{i} - v_{j}) }{ | P_{i} - P_{j} |^{4} }  \ dt. \]
+
+\subsection{Gateaux Derivative of \( G(P) \)}
+
+\begin{prop}
+    Show that the Gateaux Derivative of \( G(P) \) is 
+    \[  \delta G(P;v) = \int_{ 0 }^{ 1 } \sum_{ i=1 }^{ N } \sum_{ \ell = 1  }^{ M  } \frac{ -2 (P_{i} - C_{\ell} \cdot V_{i} ) }{ | r_{i \ell} |^{3} | P_{i}(t) - C_{\ell} |  }  \ dt. \]
+\end{prop}
+\begin{proof}
+Expanding \( G(P) \), we get
 \begin{align*} 
     G(P) &= \int_{0}^{1} \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{dt}{|r_{i\ell}(t)|^2}  \\
          &= \int_{0}^{1} \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{dt}{(\sqrt{(x_i(t) - a_{\ell})^2 + (y_i(t) - b_{\ell})^2} - R)^2}.
 \end{align*}
-Define \(g(\epsilon ) = G(P + \epsilon  V)\), we have
+Define \( g(\epsilon ) = G(P + \epsilon  V)  \) and write
 \begin{align*}
     g(\epsilon ) &= \int_{0}^{1} \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{dt}{(\sqrt{((x_i + \epsilon  u_i)- a_{\ell})^2 + ((y_i + \epsilon  w_i) - b_{\ell})^2} - R)^2}. \\
 \end{align*}
-and differentiating with respect to \( \epsilon  \) leads to  
-\[ 
-g'(\epsilon ) = \int_{0}^{1}\sum_{i=1}^{N}\sum_{\ell=1}^{M} \Bigg[ -2\frac{ 2((x_i + \epsilon  u_i) - a_{\ell})u_i + 2((y_i + \epsilon  w_i) - b_{\ell})w_i}{|r_{i\ell}(t)|^3 2\sqrt{((x_i + \epsilon  u_i)- a_{\ell})^2 + ((y_i + \epsilon  w_i) - b_{\ell})^2}}  \Bigg] \ dt 
-\]
-Letting \( \epsilon  \to 0  \), we get 
+with the Gateaux derivative being
 \begin{align*}
-    g'(0) &=  \int_{0}^{1} \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{-2[(x_i - a_{\ell})u_i + (y_i - b_{\ell})w_i]}{ \big| r_{i\ell}\big|^3\big|P_i(t) - C_l \big|} \ dt \\
-          &= \int_{0}^{1} \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{ -2(P_i - C_{\ell}) \cdot V_i}{\big| r_{i\ell}\big|^3\big|P_i(t) - C_l \big| }\ dt \\
+    g'(\epsilon ) &= \int_{0}^{1}\sum_{i=1}^{N}\sum_{\ell=1}^{M} \Bigg[ -2\frac{ 2((x_i + \epsilon  u_i) - a_{\ell})u_i + 2((y_i + \epsilon  w_i) - b_{\ell})w_i}{|r_{i\ell}(t)|^3 2\sqrt{((x_i + \epsilon  u_i)- a_{\ell})^2 + ((y_i + \epsilon  w_i) - b_{\ell})^2}}  \Bigg] \ dt. \\ 
 \end{align*}
-We conclude that 
-\[
-\delta G(P;V) = \int_{0}^{1} \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{ -2(P_i - C_{\ell}) \cdot V_i}{\big| r_{i\ell}\big|^3\big|P_i(t) - C_l \big| }\ dt.
-\]
-
-
-\[
- \delta \tilde{L} (P;V) = \int_{0}^{1} \bigg[ \sum_{j=1}^{N} \frac{P'_j \cdot V'_j}{|P'_j|} +\sum_{i=2}^{N} \sum_{j=1}^{i-1} \frac{2(P_i - P_j) \cdot (V_i - V_j)}{| P_i - P_j|^4} 
-               - \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{2(P_i - C_{\ell}) \cdot V_i}{\big| r_{i\ell}\big|^3\big|P_i(t) - C_l \big| } \bigg] \ dt.
-\]
+Letting \( \epsilon \to 0  \), we can write
+\begin{align*}
+    \lim_{ \epsilon  \to 0 }  g'(\epsilon )&= \int_{ 0 }^{ 1 }  \sum_{ i=1 }^{ N } \sum_{ \ell = 1  }^{ M  } \frac{ -2[(x_{i} - a_{\ell})u_{i} + (y_{i} - b_{\ell})w_{i}] }{ | r_{i\ell} |^{3} | P_{i}(t) - C_{\ell} |  }  \ dt \\
+                                           &= \int_{ 0 }^{ 1 }  \sum_{ i=1 }^{ N } \sum_{ \ell = 1  }^{ M  } \frac{ -2 (P_{i} - C_{\ell})\cdot V_{i}  }{  | r_{i \ell} | ^{3} | P_{i}(t) - C_{\ell} |  }  \ dt.
+\end{align*}
+Hence, we have
+\[  \delta G(P;V) = \int_{ 0 }^{ 1 }  \sum_{ i=1 }^{ N } \sum_{ \ell = 1  }^{ M  } \frac{ -2 (P_{i} - C_{\ell}) \cdot V_{i}  }{  | r_{i\ell} |^{3} | P_{i}(t) - C_{\ell} |  }  \ dt. \]
 \end{proof}
 
+\subsection{Result}
+
+Putting everything together, we end up with 
+\begin{align*}
+    \delta \tilde{L(P; V)} &= \delta L(P;V) +  \delta F(P;V) + \delta  G(P;V) \\
+                           &= \int_{0}^{1} \bigg[ \sum_{j=1}^{N} \frac{P'_j \cdot V'_j}{|P'_j|} +\sum_{i=2}^{N} \sum_{j=1}^{i-1} \frac{2(P_i - P_j) \cdot (V_i - V_j)}{| P_i - P_j|^4} 
+               - \sum_{i=1}^{N}\sum_{\ell=1}^{M} \frac{2(P_i - C_{\ell}) \cdot V_i}{\big| r_{i\ell}\big|^3\big|P_i(t) - C_l \big| } \bigg] \ dt.
+\end{align*}
 
 
 

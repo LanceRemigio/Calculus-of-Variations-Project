@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1694503493 "main.tex" "main.pdf" "main" 1694503495
+["pdflatex"] 1694592283 "main.tex" "main.pdf" "main" 1694592285
   "../preamble.tex" 1694503492 7806 f31e14c79aec40ddc540c7c91e8e65ff ""
   "/etc/texmf/web2c/texmf.cnf" 1689175322 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -328,10 +328,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1689175395 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1689175418 2799934 43e2a16b67a8880765a83481e0ef23ad ""
-  "main.aux" 1694503495 3038 a219e378597f5f0f906359ae84ba7484 "pdflatex"
-  "main.out" 1694503495 1838 1c9d22df5825512ec66dd3dcf64ddc2b "pdflatex"
-  "main.tex" 1694500734 360 042969af60189825b201bc0a09d81fd4 ""
-  "section/derivations.tex" 1694503432 5055 9040de4f53dbf094e404819c4a593edc ""
+  "main.aux" 1694592284 4027 262393f65b9e6cb92887a0e9c1ba5394 "pdflatex"
+  "main.out" 1694592284 2457 5f9879db113669abf6f3e8f295d9c636 "pdflatex"
+  "main.tex" 1694592281 448 87b46e7563b60ad51f351ef97091b727 ""
+  "section/derivations.tex" 1694592197 8500 d10440a44a3877d5c306b1b1cbf574b5 ""
+  "section/optimality.tex" 1694592220 0 d41d8cd98f00b204e9800998ecf8427e ""
   "section/problem.tex" 1694492653 2399 50a15db4b8205e08decaa842b4de3b31 ""
   "section/theory.tex" 1694493714 6685 a8cfe895eb8011d7088a49a85736dc2a ""
   (generated)

@@ -1,0 +1,68 @@
+\section{Optimality}
+
+
+This functional is defined over the set 
+\[ D = \{ P = (P_1,...,P_N) \in (C^1[0,1])^{2N} ; P(0) = P^{o}, P(1) = P^{F} \}\] where 
+\begin{align*}
+    P^{0} = (P^{0}_1,...,P^{0}_N) &  P_{j}^{0} = (x_{j}^{0}, y_{j}^{0})  \text{ with } j = 1,...,N\\
+    P^{F} = (P^{F}_1,...,P^{F}_N) & P_{j}^{F} = (x_{j}^{F}, y_{j}^{F})  \text{ with } j = 1,...,N
+\end{align*}
+and the admissible directions are
+\[ D_0 = \{ V = (V_1,...,V_N) \in (C^1[0,1])^{2N} ; v(0)=v(1)=0  \} \]
+
+To conclude, we are going to use Proposition 4.2 (page 98 of textbook) which states
+
+\begin{prop}
+    If we have functions \( g,h \in C[0,1] \) and 
+\[ \int_{0}^{1} g(x)v(x) + h(x)v'(x) = 0 \]
+for all \( v \) in 
+\[ D_0 = \{ V = (V_1,...,V_N) \in (C^1[0,1])^{2N} ; v(0)=v(1)=0  \} \]
+then, \( h' = g \). 
+\end{prop}
+
+ Applying the above proposition to a vector function involves looking at the component level: 
+
+Take \( V = (V_1,...,V_N) \in D_{0}\) with \( V_2 = V_3 = ... = V_N = 0 \). Note that \( V_1 \in (C[0,2])^2 \) where the boundary conditions are \( V_1(0) = V_1(1) = 0 \). We substitute such \( V\) into \( \delta \tilde{L}(P;V) \) 
+\begin{align*}
+    \delta \tilde{L}(P;V) = \int_{0}^{1} \bigg[ \frac{P'_1 \cdot V'_1}{|P'_1|} - \sum_{i=2}^{N} \frac{2(P_i - P_1) \cdot v_1}{| P_i - P_1|^4} 
+               - \sum_{\ell=1}^{M} \frac{2(P_1 - C_{\ell}) \cdot V_1}{\big| r_{i\ell}\big|^3\big|P_1 - C_{\ell} \big| } \bigg] \ dt
+\end{align*}
+
+Choose \( v_1 = (u_1(t), 0) \) with \( u_1(0) = u_1(1) = 0 \). Substituting,
+
+\begin{align*}
+    \delta \tilde{L}(P;V) &= \int_{0}^{1} \frac{x'_1}{|P'_1|}u'_1 - \sum_{i=2}^{N} \frac{2(x_i - x_1)u_1}{|P_i - P_1|^4} - \sum_{\ell = 1}^{M} \frac{2(x_1 - a_{\ell})u_1}{|r_{i\ell}|^3|P_1 - C_{\ell}|} \ dt \\
+    &= \int_{0}^{1} \frac{x'_1}{|P'_1|}u'_1 + \bigg( \sum_{i=2}^{N} \frac{-2(x_i - x_1)}{|P_i - P_1|^4} + \sum_{\ell = 1}^{M} \frac{-2(x_1 - a_{\ell})}{|r_{i\ell}|^3|P_1 - C_{\ell}|} \bigg)u_1 \ dt = 0.
+\end{align*}
+
+Hence, we can now apply our proposition since our integral is now in the form \( \int hu'_1 + gu'_1 \ dt = 0\). Note that we can also apply the same computation but this time taking \( v_1 = (0,w_1(t)) \) with \( w_1(0) = w_1(1) = 0 \). The only difference with this procedure is replacing \( x_i \) by \( y_i \) and \( a_{\ell} \) by \( b_{\ell} \). Hence, we have for robot 1, a coupled differential equation: 
+\begin{align*}
+    \frac{d}{dt}\bigg( \frac{x'_1}{P'_1}\bigg) &= \sum_{i=2}^{N} \frac{-2(x_i - x_1)}{|P_i - P_1|^4} +  
+    \sum_{\ell = 1}^{M} \frac{-2(x_1-a_{\ell})}{|r_{i\ell}|^3|P_1 - C_{\ell}|}, \\
+     \frac{d}{dt}\bigg( \frac{y'_1}{P'_1}\bigg) &= \sum_{i=2}^{N} \frac{-2(y_i - y_1)}{|P_i - P_1|^4} +  
+    \sum_{\ell = 1}^{M} \frac{-2(y_1-b_{\ell})}{|r_{i\ell}|^3|P_1 - C_{\ell}|}.
+\end{align*}
+
+Lastly, we can follow this same procedure with \( V = (0,V_2,0,...0)) \) and then \( V = (0,0,V_3,0,...,0 ) \) up to \( V = (0,0,...,0,V_N) \). For each \( V\), we derive two differential equations of the same form. The generalization of this process is as follows: 
+
+The Gateaux derivative for each jth choice of \( V\) where \( V = (0,0,...V_j,...,0,0) \) is 
+\begin{align*}
+    \delta \tilde{L} (P;V) &= \int_{0}^{1} \bigg[\frac{P'_j \cdot V'_j}{|P'_j|} +\sum_{i=1}^{N} \frac{2(P_i - P_j) \cdot (- v_j)}{| P_i - P_j|^4} 
+               + \sum_{\ell=1}^{M} \frac{-2(P_j - C_{\ell}) \cdot V_i}{\big| r_{i\ell}\big|^3\big|P_j(t) - C_l \big| } \bigg] \ dt
+\end{align*}
+
+
+Plugging two cases of \( v_j = (u_j,0) \) and \( V_j = (0,w_j) \) followed by Proposition \(4.2\), we get the general system:
+\begin{align*}
+    \frac{d}{dt}\bigg( \frac{x'_j}{P'_j}\bigg) &= \sum_{i=1}^{N} \frac{-2(x_i - x_j)}{|P_i - P_j|^4} +  
+    \sum_{\ell = 1}^{M} \frac{-2(x_j-a_{\ell})}{|r_{i\ell}|^3|P_j - C_{\ell}|}, \\
+     \frac{d}{dt}\bigg( \frac{y'_j}{P'_j}\bigg) &= \sum_{i=1}^{N} \frac{-2(y_i - y_j)}{|P_i - P_j|^4} +  
+    \sum_{\ell = 1}^{M} \frac{-2(y_j-b_{\ell})}{|r_{i\ell}|^3|P_j - C_{\ell}|}
+\end{align*}
+
+for \( j = 1,..,N \) and \( j = 1,..,N \) and \( i \neq j \). Compacting this into a single equation, we get the following 1st order necessary condition:
+\begin{align*}
+    \frac{d}{dt}\bigg( \frac{P'_j(t)}{|P_j(t)|}\bigg) = \sum_{i=1}^{N} \frac{-2(P_i(t) - P_j(t))}{|P_i(t) - P_j(t)|^4} + \sum_{l=1}^{M} \frac{-2(P_j(t) - C_{\ell})}{|r_{i\ell}(t)|^3|P_j(t) - C_{\ell}|}
+\end{align*}
+for where \( j = 1,..,N \) and \( i \neq j \).
+

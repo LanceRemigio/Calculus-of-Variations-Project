@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.7.12)  13 SEP 2023 01:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.7.12)  16 SEP 2023 01:25
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1009,9 +1009,79 @@ File: pppdftex.def 2022/01/29 v0.5u Pdfpages driver for pdfTeX (AM)
 \AM@templatesizebox=\box140
 ) (/usr/share/texlive/texmf-dist/tex/latex/transparent/transparent.sty
 Package: transparent 2019/11/29 v1.4 Transparency via pdfTeX's color stack (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count373
+\lst@gtempboxa=\box141
+\lst@token=\toks62
+\lst@length=\count374
+\lst@currlwidth=\dimen338
+\lst@column=\count375
+\lst@pos=\count376
+\lst@lostspace=\dimen339
+\lst@width=\dimen340
+\lst@newlines=\count377
+\lst@lineno=\count378
+\lst@maxwidth=\dimen341
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count379
+\lst@skipnumbers=\count380
+\lst@framebox=\box142
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
 ))
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 7.
- (./main.aux)
+ (./main.aux
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -1040,7 +1110,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count373
+\c@section@level=\count381
 )
 LaTeX Info: Redefining \ref on input line 7.
 LaTeX Info: Redefining \pageref on input line 7.
@@ -1051,17 +1121,17 @@ LaTeX Info: Redefining \nameref on input line 7.
 
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count374
-\scratchdimen=\dimen338
-\scratchbox=\box141
-\nofMPsegments=\count375
-\nofMParguments=\count376
-\everyMPshowfont=\toks62
-\MPscratchCnt=\count377
-\MPscratchDim=\dimen339
-\MPnumerator=\count378
-\makeMPintoPDFobject=\count379
-\everyMPtoPDFconversion=\toks63
+\scratchcounter=\count382
+\scratchdimen=\dimen342
+\scratchbox=\box143
+\nofMPsegments=\count383
+\nofMParguments=\count384
+\everyMPshowfont=\toks63
+\MPscratchCnt=\count385
+\MPscratchDim=\dimen343
+\MPnumerator=\count386
+\makeMPintoPDFobject=\count387
+\everyMPtoPDFconversion=\toks64
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -1069,6 +1139,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
@@ -1119,6 +1190,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
+\c@lstlisting=\count388
 LaTeX Font Info:    Trying to load font information for U+msa on input line 9.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1134,24 +1206,30 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 9.
  (/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Chapter 1.
-(./section/problem.texpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./main.toc)
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.21         \item \(
-                      P_{j}^{0} = (x_{j}^{0}, y_{j}^{0}) \) for \( j = 1,..,... [1
+l.11 \chapter
+             {Problem Statement} [1
 
-]) [2]
+]
+Chapter 1.
+(./section/problem.tex [2
+
+]) [3]
 Chapter 2.
-(./section/theory.tex [3
+(./section/theory.tex [4
 
 ]
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-[4]
+[5]
 Missing character: There is no ; in font nullfont!
-[5]) [6]
+[6]) [7]
 Chapter 3.
 (./section/derivations.tex
 
@@ -1174,18 +1252,18 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 24.
 Package hyperref Info: bookmark level for unknown replacementproof defaults to 0 on input line 24.
- [7
+ [8
 
 ]
 Package mdframed Info: Not enough space on this page on input line 49.
- [8]
+ [9]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 55.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 60.
- [9]
+ [10]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 88.
@@ -1196,27 +1274,128 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 95.
-[10]) [11]
+[11]) [12]
 Chapter 4.
-(./section/optimality.tex) [12
+(./section/optimality.tex
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 16.
+ [13
 
-] (./main.aux)
+] [14]) [15]
+Chapter 5.
+(./section/cases.tex
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 18.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+) [16
+
+] [17]
+<Graphs/Plot 1 parallel.png, id=283, 371.3875pt x 248.93pt>
+File: Graphs/Plot 1 parallel.png Graphic file (type png)
+<use Graphs/Plot 1 parallel.png>
+Package pdftex.def Info: Graphs/Plot 1 parallel.png  used on input line 114.
+(pdftex.def)             Requested size: 284.52756pt x 190.7157pt.
+ [18]
+<Graphs/Collsion free path for plot 1.png, id=325, 371.3875pt x 248.93pt>
+File: Graphs/Collsion free path for plot 1.png Graphic file (type png)
+<use Graphs/Collsion free path for plot 1.png>
+Package pdftex.def Info: Graphs/Collsion free path for plot 1.png  used on input line 121.
+(pdftex.def)             Requested size: 284.52756pt x 190.7157pt.
+<Graphs/Plot 2.png, id=326, 371.3875pt x 248.93pt>
+File: Graphs/Plot 2.png Graphic file (type png)
+<use Graphs/Plot 2.png>
+Package pdftex.def Info: Graphs/Plot 2.png  used on input line 128.
+(pdftex.def)             Requested size: 284.52756pt x 190.7157pt.
+ [19 <./Graphs/Plot 1 parallel.png> <./Graphs/Collsion free path for plot 1.png>]
+<Graphs/Collision free path for plot 2.png, id=335, 371.3875pt x 248.93pt>
+File: Graphs/Collision free path for plot 2.png Graphic file (type png)
+<use Graphs/Collision free path for plot 2.png>
+Package pdftex.def Info: Graphs/Collision free path for plot 2.png  used on input line 135.
+(pdftex.def)             Requested size: 284.52756pt x 190.7157pt.
+<Graphs/Plot 3.png, id=336, 371.3875pt x 248.93pt>
+File: Graphs/Plot 3.png Graphic file (type png)
+<use Graphs/Plot 3.png>
+Package pdftex.def Info: Graphs/Plot 3.png  used on input line 142.
+(pdftex.def)             Requested size: 284.52756pt x 190.7157pt.
+ [20 <./Graphs/Plot 2.png> <./Graphs/Collision free path for plot 2.png>]
+<Graphs/Collision free path for plot 3.png, id=345, 371.3875pt x 248.93pt>
+File: Graphs/Collision free path for plot 3.png Graphic file (type png)
+<use Graphs/Collision free path for plot 3.png>
+Package pdftex.def Info: Graphs/Collision free path for plot 3.png  used on input line 149.
+(pdftex.def)             Requested size: 284.52756pt x 190.7157pt.
+<Graphs/Two Robots Intersecting (1).png, id=346, 628.3475pt x 436.63126pt>
+File: Graphs/Two Robots Intersecting (1).png Graphic file (type png)
+<use Graphs/Two Robots Intersecting (1).png>
+Package pdftex.def Info: Graphs/Two Robots Intersecting (1).png  used on input line 161.
+(pdftex.def)             Requested size: 284.52756pt x 197.7148pt.
+ [21 <./Graphs/Plot 3.png> <./Graphs/Collision free path for plot 3.png>]
+File: Graphs/Two Robots Intersecting (1).png Graphic file (type png)
+<use Graphs/Two Robots Intersecting (1).png>
+Package pdftex.def Info: Graphs/Two Robots Intersecting (1).png  used on input line 172.
+(pdftex.def)             Requested size: 284.52756pt x 197.7148pt.
+<Graphs/Two Robots Intersecting (2).png, id=355, 624.3325pt x 438.63875pt>
+File: Graphs/Two Robots Intersecting (2).png Graphic file (type png)
+<use Graphs/Two Robots Intersecting (2).png>
+Package pdftex.def Info: Graphs/Two Robots Intersecting (2).png  used on input line 182.
+(pdftex.def)             Requested size: 284.52756pt x 199.9022pt.
+ [22 <./Graphs/Two Robots Intersecting (1).png>]
+<Graphs/2robots1obstacle.png, id=363, 619.31375pt x 426.59375pt>
+File: Graphs/2robots1obstacle.png Graphic file (type png)
+<use Graphs/2robots1obstacle.png>
+Package pdftex.def Info: Graphs/2robots1obstacle.png  used on input line 195.
+(pdftex.def)             Requested size: 284.52756pt x 195.99466pt.
+<Graphs/collisionfree.png, id=364, 619.31375pt x 419.5675pt>
+File: Graphs/collisionfree.png Graphic file (type png)
+<use Graphs/collisionfree.png>
+Package pdftex.def Info: Graphs/collisionfree.png  used on input line 203.
+(pdftex.def)             Requested size: 284.52756pt x 192.76651pt.
+ [23 <./Graphs/Two Robots Intersecting (2).png> <./Graphs/2robots1obstacle.png>]
+File: Graphs/2robots1obstacle.png Graphic file (type png)
+<use Graphs/2robots1obstacle.png>
+Package pdftex.def Info: Graphs/2robots1obstacle.png  used on input line 213.
+(pdftex.def)             Requested size: 284.52756pt x 195.99466pt.
+File: Graphs/Two Robots Intersecting (2).png Graphic file (type png)
+<use Graphs/Two Robots Intersecting (2).png>
+Package pdftex.def Info: Graphs/Two Robots Intersecting (2).png  used on input line 225.
+(pdftex.def)             Requested size: 284.52756pt x 199.9022pt.
+ [24 <./Graphs/collisionfree.png>]
+<Graphs/plot for two robots and one obstacle.JPG, id=381, 335.75438pt x 228.10219pt>
+File: Graphs/plot for two robots and one obstacle.JPG Graphic file (type jpg)
+<use Graphs/plot for two robots and one obstacle.JPG>
+Package pdftex.def Info: Graphs/plot for two robots and one obstacle.JPG  used on input line 235.
+(pdftex.def)             Requested size: 284.52756pt x 193.29955pt.
+<Graphs/Two Robots intersecting (3).JPG, id=382, 364.36125pt x 249.93375pt>
+File: Graphs/Two Robots intersecting (3).JPG Graphic file (type jpg)
+<use Graphs/Two Robots intersecting (3).JPG>
+Package pdftex.def Info: Graphs/Two Robots intersecting (3).JPG  used on input line 242.
+(pdftex.def)             Requested size: 284.52756pt x 195.18016pt.
+ [25 <./Graphs/plot for two robots and one obstacle.JPG>]) (./section/limitations.tex
+<Graphs/limitation.png, id=389, 618.31pt x 422.57875pt>
+File: Graphs/limitation.png Graphic file (type png)
+<use Graphs/limitation.png>
+Package pdftex.def Info: Graphs/limitation.png  used on input line 7.
+(pdftex.def)             Requested size: 284.52756pt x 194.46596pt.
+ [26 <./Graphs/Two Robots intersecting (3).JPG> <./Graphs/limitation.png>]) [27] (./main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5F9879DB113669ABF6F3E8F295D9C636;2457.
+(rerunfilecheck)             Checksum: E5664852FD16E98AB29C00756943FAE7;4140.
  ) 
 Here is how much of TeX's memory you used:
- 44727 strings out of 478287
- 1056874 string characters out of 5849289
- 1406962 words of memory out of 5000000
- 62090 multiletter control sequences out of 15000+600000
- 493684 words of font info for 98 fonts, out of 8000000 for 9000
+ 46845 strings out of 478287
+ 1087199 string characters out of 5849289
+ 1741307 words of memory out of 5000000
+ 64029 multiletter control sequences out of 15000+600000
+ 495534 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,14n,88p,768b,1117s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1000.pfb>
-Output written on main.pdf (13 pages, 267277 bytes).
+ 89i,14n,88p,1248b,2437s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb>
+Output written on main.pdf (28 pages, 1331615 bytes).
 PDF statistics:
- 238 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 109 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 531 PDF objects out of 1000 (max. 8388607)
+ 429 compressed objects within 5 object streams
+ 169 named destinations out of 1000 (max. 500000)
+ 254 words of extra memory for PDF output out of 10000 (max. 10000000)
 

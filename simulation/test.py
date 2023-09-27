@@ -37,16 +37,45 @@ robot2_y = 0 #insert guess for y position for robot 2
 # This function is doing too much 
 # Original function is unreadable 
 
-
-def diff_func (x1,y1, x2,y2, rep_obj, rep_robot):
+def x1_el (x1,y1, x2, y2, c1, c2, obs1_pos, obs1_radius):
     delt_x = x1 - x2
     delt_y = y1 - y2
-    
-    x1_el = -(rep_obj * delt_x) / (delt_x ** 2 + delt_y ** 2 ) ** 2 - rep_robot * (x1 - 2 ) / (np.sqrt((x1 - obs1_pos[0]) ** 2 + ))
-    
+    list_terms = [ 
+                    (c1 * delt_x) / sum((delt_x) ** 2, (delt_y) ** 2 ) ** 2,      
 
-    return 0    
+                    (c2 *  (x1 - 2)) / (np.sqrt(x1 - obs1_pos[0])) ** 2, 
 
+                    (y1 - obs1_pos[1] ** 2 - obs1_radius) ** 3 
+                    / np.sqrt((x1 - obs1_pos[0]) ** 2 + (y1 - obs1_pos[1] ** 2 ))
+                ]
+    return -list_terms[0] - list_terms[1] + list_terms[2]     
+
+def y1_el (x1,y1, x2, y2, c1, c2, obs1_pos, obs1_radius):
+    delt_x = x1 - x2
+    delt_y = y1 - y2
+    list_terms = [ 
+                    (c1 * delt_y) / sum((delt_x) ** 2, (delt_y) ** 2 ) ** 2,      
+
+                    (c2 *  (y1 - 2)) / (np.sqrt(x1 - obs1_pos[0])) ** 2, 
+
+                    (y1 - obs1_pos[1] ** 2 - obs1_radius) ** 3 
+                    / np.sqrt((x1 - obs1_pos[0]) ** 2 + (y1 - obs1_pos[1] ** 2 ))
+                ]
+    return -list_terms[0] - list_terms[1] + list_terms[2]
+
+
+def x2_el (x1,y1, x2, y2, c1, c2, obs1_pos, obs1_radius):
+    return 0
+
+def y2_el (x1,y1, x2, y2, c1, c2, obs1_pos, obs1_radius):
+    return 0
+
+
+def diff_func (x1,y1, x2, y2, c1, c2, obs1_pos, obs1_radius):
+    list_func = [ x1_el(x1,y1, x2, y2, c1, c2, obs1_pos, obs1_radius), 
+                    y1_el(x1,y1, x2, y2, c1, c2, obs1_pos, obs1_radius),   
+                ] 
+    return list_func
 def boundary_conditions (ya, yb):
     return ya[0] - robot1_start[0], yb[0] - robot1_end[0], ya[1] - robot1_start[1], yb[1] - robot1_end[1], ya[2] - robot2_start[0], yb[2] - robot2_end[0], ya[3] - robot2_start[1], yb[3] - robot2_end[1]
 

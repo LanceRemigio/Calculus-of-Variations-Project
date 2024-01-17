@@ -4,8 +4,12 @@ import scipy.integrate as integrate
 
 # weights
 
+# Repulsiveness between robots
+
 C1 = 1 
-C2 = 1 
+
+# Replusiveness of obstacles
+C2 = 3
 
 # user input for testing
 
@@ -23,13 +27,12 @@ robot2f = input("Enter ending coordinate of second robot:  ")
 robot2_start = tuple([int(item) for item in robot2i.split(',')])
 robot2_end = tuple([int(item) for item in robot2f.split(',')])
 
+obs1_posIn = input("Enter coordinate of obstacle: ")
+obs1_pos = tuple(
+        [int(item) for item in obs1_posIn.split(',')]
+        )
 
-# Boundary Conditions
-
-# robot1_start = (1,0)
-# robot1_end = (2,1)
-# robot2_start = (0,0)
-# robot2_end = (1,5)
+obs1_radius = int(input("Enter the radius of obstacle: "))
 
 # Guess
 
@@ -41,10 +44,13 @@ robot2_y = 6
 def dxydt (t, x_y):
     x1, y1, x2, y2, dx1, dy1, dx2, dy2 = x_y
     try:
-        x1_el = -(C1 * (x1 - x2)) / ((x1 - x2) ** 2 + (y1 - y2) ** 2) - C2 * (x1 - 2) / (np.sqrt((x1 - 2) ** 2  + (y1 - 2) ** 2) -2) ** 3 / np.sqrt((x1 - 2) ** 2 + (y1 - 2) ** 2) 
-        y1_el = -(C1 * (y1 - y2)) / ((x1  - x2) ** 2 + (y1 - y2) ** 2) ** 2 - C2 * (y1 - 2) / (np.sqrt((x1 - 2) + (y1 - 2) ** 2) - 2) ** 3 / np.sqrt((x1  - 2) ** 2 + (y1 - 2) ** 2)   
-        x2_el = (C1 *  (x1 - x2)) / ((x1  - x2) ** 2 + (y1 - y2) ** 2) ** 2 - C2 * (x2 - 2) / (np.sqrt(x2 - 2 ** 2 + (y2 - 2) ** 2) -2 ) ** 3 / np.sqrt((x2  - 2) ** 2 + (y2 - 2) ** 2) 
-        y2_el = (C1 * (y1 - y2)) / ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 2 - C2 * (y2 - 2) / (np.sqrt((x2 - 2) ** 2 + (y2 - 2) ** 2) - 2) **3 / np.sqrt((x2 - 2 ) ** 2 + (y2 - 2) ** 2)
+        x1_el = -(C1 * (x1 - x2)) / ((x1 - x2) ** 2 + (y1 - y2) ** 2) - C2 * (x1 - 2) / (np.sqrt((x1 - obs1_pos[0]) ** 2  + (y1 - obs1_pos[1]) ** 2) -obs1_radius) ** 3 / np.sqrt((x1 - obs1_pos[0]) ** 2 + (y1 - obs1_pos[1]) ** 2) 
+
+        y1_el = -(C1 * (y1 - y2)) / ((x1  - x2) ** 2 + (y1 - y2) ** 2) ** 2 - C2 * (y1 - 2) / (np.sqrt((x1 - obs1_pos[0]) ** 2 + (y1 - obs1_pos[1]) ** 2) - 2) ** 3 / np.sqrt((x1  - obs1_pos[0]) ** 2 + (y1 - obs1_pos[1]) ** 2)   
+
+        x2_el = (C1 *  (x1 - x2)) / ((x1  - x2) ** 2 + (y1 - y2) ** 2) ** 2 - C2 * (x2 - 2) / (np.sqrt( (x2 - obs1_pos[0]) ** 2 + (y2 - obs1_pos[1]) ** 2) -2 ) ** 3 / np.sqrt((x2  - obs1_pos[0]) ** 2 + (y2 - obs1_pos[1]) ** 2) 
+
+        y2_el = (C1 * (y1 - y2)) / ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 2 - C2 * (y2 - 2) / (np.sqrt((x2 - obs1_pos[0]) ** 2 + (y2 - obs1_pos[1]) ** 2) - 2) **3 / np.sqrt((x2 - obs1_pos[0] ) ** 2 + (y2 - obs1_pos[1]) ** 2)
 
         return dx1, dy1, dx2, dy2, x1_el, y1_el, y2_el, x2_el,
     except:
@@ -71,7 +77,7 @@ obs_t = np.linspace(0, 2 * np.pi, 100)
 plt.plot(res.sol(t)[0], res.sol(t)[1], label = 'Robot 1')
 plt.plot(res.sol(t)[2], res.sol(t)[3], label = 'Robot 2')
 
-plt.plot(np.cos(obs_t) + 5, np.sin(obs_t) + 5, label = 'obstacle')
+plt.plot(obs1_radius * np.cos(obs_t) + obs1_pos[0], obs1_radius * np.sin(obs_t) + obs1_pos[1], label = 'obstacle')
 plt.legend()
 
 plt.show()

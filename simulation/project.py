@@ -2,13 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.integrate as integrate
 
-# weights
-
 # Repulsiveness between robots
 
 C1 = 1 
 
 # Replusiveness of obstacles
+
 C2 = 3
 
 # user input for testing
@@ -17,15 +16,24 @@ C2 = 3
 robot1i = input("Enter starting coordinate of first robot: ")
 robot1f = input("Enter ending coordinate of first robot:  ")
 
-robot1_start = tuple([int(item) for item in robot1i.split(',')])
-robot1_end = tuple([int(item) for item in robot1f.split(',')])
+robot1_start = tuple(
+        [int(item) for item in robot1i.split(',')]
+        )
+robot1_end = tuple(
+        [int(item) for item in robot1f.split(',')]
+        )
 
 # boundary conditions for second robot
 robot2i = input("Enter starting coordinate of second robot: ")
 robot2f = input("Enter ending coordinate of second robot:  ")
 
-robot2_start = tuple([int(item) for item in robot2i.split(',')])
-robot2_end = tuple([int(item) for item in robot2f.split(',')])
+robot2_start = tuple(
+        [int(item) for item in robot2i.split(',')]
+        )
+
+robot2_end = tuple(
+        [int(item) for item in robot2f.split(',')]
+        )
 
 obs1_posIn = input("Enter coordinate of obstacle: ")
 obs1_pos = tuple(
@@ -36,21 +44,21 @@ obs1_radius = int(input("Enter the radius of obstacle: "))
 
 # Guess
 
-robot1_x = 0 
-robot1_y = 9
-robot2_x = 5
-robot2_y = 6
+robot1_x = 2 
+robot1_y = 3
+robot2_x = 6
+robot2_y = 4
 
 def dxydt (t, x_y):
     x1, y1, x2, y2, dx1, dy1, dx2, dy2 = x_y
     try:
-        x1_el = -(C1 * (x1 - x2)) / ((x1 - x2) ** 2 + (y1 - y2) ** 2) - C2 * (x1 - 2) / (np.sqrt((x1 - obs1_pos[0]) ** 2  + (y1 - obs1_pos[1]) ** 2) -obs1_radius) ** 3 / np.sqrt((x1 - obs1_pos[0]) ** 2 + (y1 - obs1_pos[1]) ** 2) 
+        x1_el = -(C1 * (x1 - x2)) / ((x1 - x2) ** 2 + (y1 - y2) ** 2) - C2 * (x1 - 2) / (np.sqrt((x1 - obs1_pos[0]) ** 2  + (y1 - obs1_pos[1]) ** 2) -obs1_radius) ** 3 / np.sqrt((x1 - obs1_pos[0]) ** 2 + (y1 - obs1_pos[1]) ** 2)
 
-        y1_el = -(C1 * (y1 - y2)) / ((x1  - x2) ** 2 + (y1 - y2) ** 2) ** 2 - C2 * (y1 - 2) / (np.sqrt((x1 - obs1_pos[0]) ** 2 + (y1 - obs1_pos[1]) ** 2) - 2) ** 3 / np.sqrt((x1  - obs1_pos[0]) ** 2 + (y1 - obs1_pos[1]) ** 2)   
+        y1_el = -(C1 * (y1 - y2)) / ((x1  - x2) ** 2 + (y1 - y2) ** 2) ** 2 - C2 * (y1 - 2) / (np.sqrt((x1 - obs1_pos[0]) ** 2 + (y1 - obs1_pos[1]) ** 2) - obs1_radius) ** 3 / np.sqrt((x1  - obs1_pos[0]) ** 2 + (y1 - obs1_pos[1]) ** 2)   
 
-        x2_el = (C1 *  (x1 - x2)) / ((x1  - x2) ** 2 + (y1 - y2) ** 2) ** 2 - C2 * (x2 - 2) / (np.sqrt( (x2 - obs1_pos[0]) ** 2 + (y2 - obs1_pos[1]) ** 2) -2 ) ** 3 / np.sqrt((x2  - obs1_pos[0]) ** 2 + (y2 - obs1_pos[1]) ** 2) 
+        x2_el = (C1 *  (x1 - x2)) / ((x1  - x2) ** 2 + (y1 - y2) ** 2) ** 2 - C2 * (x2 - 2) / (np.sqrt( (x2 - obs1_pos[0]) ** 2 + (y2 - obs1_pos[1]) ** 2) - obs1_radius ) ** 3 / np.sqrt((x2  - obs1_pos[0]) ** 2 + (y2 - obs1_pos[1]) ** 2) 
 
-        y2_el = (C1 * (y1 - y2)) / ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 2 - C2 * (y2 - 2) / (np.sqrt((x2 - obs1_pos[0]) ** 2 + (y2 - obs1_pos[1]) ** 2) - 2) **3 / np.sqrt((x2 - obs1_pos[0] ) ** 2 + (y2 - obs1_pos[1]) ** 2)
+        y2_el = (C1 * (y1 - y2)) / ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 2 - C2 * (y2 - 2) / (np.sqrt((x2 - obs1_pos[0]) ** 2 + (y2 - obs1_pos[1]) ** 2) - obs1_radius ) **3 / np.sqrt((x2 - obs1_pos[0] ) ** 2 + (y2 - obs1_pos[1]) ** 2)
 
         return dx1, dy1, dx2, dy2, x1_el, y1_el, y2_el, x2_el,
     except:

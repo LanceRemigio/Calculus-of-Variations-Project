@@ -1,6 +1,6 @@
 # Calculus of Variations Project
 
-A program that simulates paths of robots using principles from Calculus of Variations with a goal of minimizing collisions between obstacles.
+A program that simulates paths of robots as point particles using principles from Calculus of Variations with a goal of minimizing collisions between obstacles.
 
 ## Modules Used
 

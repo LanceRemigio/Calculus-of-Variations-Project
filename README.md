@@ -25,9 +25,7 @@ cd simulation
 python3 project.py
 ````
 
-
-The program will then prompt you to enter the paths of each robot (via the starting and ending point of their paths) and the location of the obstacle. Make sure to list each coordinate with a comma (with no spaces). For example, running the file will create the following plot:
-![Two Robots One Obstacle](./content/Graphs/2robots1obstacle.png)
+The program will then prompt you to enter the paths of each robot (via the starting and ending point of their paths) and the location of the obstacle. Make sure to list each coordinate with a comma (with no spaces).
 
 ## Documentation
 
